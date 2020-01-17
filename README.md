@@ -40,13 +40,24 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+ The first two arguments passed by express to a route handler function are: 1) an object that represents the request and 2) an object that represents the response. Express expands those objects with a set of useful properties and methods. Our example uses the .send() method of the response object to specify the data sent to the client as the response body.
+
 - [ ] Describe Middleware?
+
+Middleware functions are functions that have access to the request object (req), the response object (res), and the next function in the application’s request-response cycle. The next function is a function in the Express router which, when invoked, executes the middleware succeeding the current middleware. We can think of middleware as array of functions that get executed in the order they are introduced into the server code.
 
 - [ ] Describe a Resource?
 
+A resource is any data held in the back end of an application or API. Everything in a database is a resource. They are usually the nouns that we want to do something with. We can do something with each resource using its unique id.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+A status code and a json message. An API can return different statuses, errors, and messages that will tell the client if they were successful in their request and if not, more specifically where they failed.
+
 - [ ] How can we partition our application into sub-applications?
+
+By using express.use('/arb_endpoint', endpointRouter). We can use routers to partition our application into sub-applications and then have a main server hub that uses all those routers.
+
 
 ## Minimum Viable Product
 
